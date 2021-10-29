@@ -1,15 +1,24 @@
-function findAndSaveUIser(Users){
-    Users.findOne({})
-        .then((user)=>{
-            user.name='zero';
-            return user.save();
-        })
-        .then((user)=>{
-            return Users.findOne({gender:'m'});
-        })
-        .then((user)=>{
-            // 생략
-        }).catch(err=>{
-            console.error(err);
-        });
-    }
+let recipeMap = new Map([
+    ['cucumber', 500],
+    ['tomatoes', 350],
+    ['onion', 50]
+]);
+
+//키를 대상으로 순회
+for(let vegetable of recipeMap.keys()){
+    console.log(vegetable);
+}
+
+//값을 대상으로 순회
+for(let amount of recipeMap.values()){
+    console.log(amount);
+}
+
+//[키, 값]쌍을 대상으로 순회
+for( let entry of recipeMap){
+    console.log(entry);
+}
+
+recipeMap.forEach((v,k,m)=>{
+    console.log(`${k} : ${v}`);
+})
